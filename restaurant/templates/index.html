@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Menu</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <h1>Restaurant Menu</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="menu-table"></tbody>
+    </table>
+
+    <h2>Add New Dish</h2>
+    <form id="add-dish-form">
+        <input type="text" id="dish-name" placeholder="Dish Name" required>
+        <input type="number" id="dish-price" placeholder="Price" required step="0.01">
+        <button type="submit">Add Dish</button>
+    </form>
+
+    <script src="static/scripts.js"></script>
+</body>
+</html>
