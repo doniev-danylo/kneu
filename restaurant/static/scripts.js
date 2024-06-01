@@ -12,7 +12,7 @@ function fetchMenu() {
                 <td contenteditable="true">${item.name}</td>
                 <td contenteditable="true">$${item.price}</td>
                 <td>
-                    <button onclick="saveChanges('${item._id}', '${item.name}', ${item.price})">Save Changes</button>
+                    <button onclick="saveChanges('${item._id}', '${item.name}', ${item.price})">Save</button>
                     <button onclick="deleteDish('${item._id}')">Delete</button>
                 </td>
             `;
