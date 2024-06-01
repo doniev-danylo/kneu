@@ -1,7 +1,3 @@
-Certainly! Here's a concise description suitable for a GitLab README:
-
----
-
 # Restaurant Menu Management System
 
 This project implements a Restaurant Menu Management System using Flask, MongoDB, HTML, CSS, and JavaScript. It allows users to view, add, update, and delete dishes from the restaurant menu. Users can also upload photos for each dish.
