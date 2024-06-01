@@ -30,7 +30,3 @@ This project implements a Restaurant Menu Management System using Flask, MongoDB
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-Feel free to customize and expand upon this description as needed for your GitLab README.
