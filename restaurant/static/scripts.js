@@ -1,14 +1,14 @@
 // Function to fetch and display menu items
 function fetchMenu() {
     fetch('/menu')
-    .then(response => response.json())
-    .then(menu => {
-        const menuTable = document.getElementById('menu-table');
-        menuTable.innerHTML = '';
-        menu.forEach(item => {
-            const row = document.createElement('tr');
-            row.id = item._id; // Set the id attribute to the dish ID
-            row.innerHTML = `
+        .then(response => response.json())
+        .then(menu => {
+            const menuTable = document.getElementById('menu-table');
+            menuTable.innerHTML = '';
+            menu.forEach(item => {
+                const row = document.createElement('tr');
+                row.id = item._id; // Set the id attribute to the dish ID
+                row.innerHTML = `
                 <td contenteditable="true">${item.name}</td>
                 <td contenteditable="true">$${item.price}</td>
                 <td>
@@ -16,10 +16,10 @@ function fetchMenu() {
                     <button onclick="deleteDish('${item._id}')">Delete</button>
                 </td>
             `;
-            menuTable.appendChild(row);
-        });
-    })
-    .catch(error => console.error('Error fetching menu:', error));
+                menuTable.appendChild(row);
+            });
+        })
+        .catch(error => console.error('Error fetching menu:', error));
 }
 
 // Function to add a new dish
@@ -52,7 +52,7 @@ function saveChanges(dishId, currentName, currentPrice) {
     const newName = cells[0].textContent.trim(); // Get the name from the first cell
     const newPrice = parseFloat(cells[1].textContent.replace('$', '').trim()); // Get the price from the second cell
 
-    if (newName !== currentName ) {
+    if (newName !== currentName) {
         fetch('/menu/change_name', {
             method: 'POST',
             headers: {
@@ -93,17 +93,16 @@ function saveChanges(dishId, currentName, currentPrice) {
 
 // Function to delete a dish
 function deleteDish(dishId) {
-    if (confirm('Are you sure you want to delete this dish?')) {
-        fetch(`/menu/${dishId}`, {
-            method: 'DELETE'
+    fetch(`/menu/${dishId}`, {
+        method: 'DELETE'
+    })
+        .then(response => response.json())
+        .then(response => {
+            console.log(response); // Log response from the server
+            fetchMenu(); // Fetch updated menu after deleting the dish
         })
-            .then(response => response.json())
-            .then(response => {
-                console.log(response); // Log response from the server
-                fetchMenu(); // Fetch updated menu after deleting the dish
-            })
-            .catch(error => console.error('Error deleting dish:', error));
-    }
+        .catch(error => console.error('Error deleting dish:', error));
+
 }
 
 // Add event listener to the add dish form
