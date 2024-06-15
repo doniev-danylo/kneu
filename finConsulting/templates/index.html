@@ -3,19 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Financial Consulting Dashboard</title>
+    <title>Financial Consulting</title>
     <link href="static/styles.css" rel="stylesheet">
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAW7gPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEBAAAAAAAAEREQAAAAAAEREREAAAAAEREBERAAAAARAQEBEAAAAAABAQEQAAAAAAEBERAAAAAAERERAAAAAAERERAAAAAAEREBAAAAAAARAQEAAAAAABEBAQEQAAAAEREBERAAAAABERERAAAAAAARERAAAAAAAAEBAAAAD9fwAA+D8AAPAfAADhDwAA5U8AAP1PAAD9DwAA+B8AAPA/AADhfwAA5X8AAOVPAADhDwAA8B8AAPg/AAD9fwAA" rel="icon" type="image/x-icon">
 </head>
 <body>
     <header>
-        <h1>Financial Consulting Dashboard</h1>
+        <h1>Financial Consulting</h1>
     </header>
     <main>
         <section id="clients">
             <h2>Clients</h2>
             <ul>
                 {% for client in clients %}
-                <li>{{ client.name }} - {{ client.email }}</li>
+                <li onclick="toggleDetails(this)">
+                    {{ client.name }} - {{ client.email }}
+                    <div class="details">
+                        <p><strong>Phone:</strong> {{ client.phone }}</p>
+                        <p><strong>Address:</strong> {{ client.address }}</p>
+                    </div>
+                </li>
+                {% else %}
+                <li>No clients found</li>
                 {% endfor %}
             </ul>
         </section>
@@ -23,7 +32,15 @@
             <h2>Transactions</h2>
             <ul>
                 {% for transaction in transactions %}
-                <li>{{ transaction.type }} - {{ transaction.amount }} on {{ transaction.date }}</li>
+                <li onclick="toggleDetails(this)">
+                    {{ transaction.type }} - {{ transaction.amount }} on {{ transaction.date  }}
+                    <div class="details">
+                        <p><strong>Transaction ID:</strong> {{ transaction.transactionId }}</p>
+                        <p><strong>Client ID:</strong> {{ transaction.clientId }}</p>
+                    </div>
+                </li>
+                {% else %}
+                <li>No transactions found</li>
                 {% endfor %}
             </ul>
         </section>
@@ -31,7 +48,16 @@
             <h2>Consultations</h2>
             <ul>
                 {% for consultation in consultations %}
-                <li>{{ consultation.topic }} with {{ consultation.consultant }} on {{ consultation.date }}</li>
+                <li onclick="toggleDetails(this)">
+                    {{ consultation.topic }} with {{ consultation.consultant }} on {{ consultation.date  }}
+                    <div class="details">
+                        <p><strong>Consultation ID:</strong> {{ consultation.consultationId }}</p>
+                        <p><strong>Client ID:</strong> {{ consultation.clientId }}</p>
+                        <p><strong>Notes:</strong> {{ consultation.notes }}</p>
+                    </div>
+                </li>
+                {% else %}
+                <li>No consultations found</li>
                 {% endfor %}
             </ul>
         </section>
@@ -39,11 +65,20 @@
             <h2>Reports</h2>
             <ul>
                 {% for report in reports %}
-                <li>{{ report.date }}: {{ report.content }}</li>
+                <li onclick="toggleDetails(this)">
+                    {{ report.date  }}: {{ report.content }}
+                    <div class="details">
+                        <p><strong>Report ID:</strong> {{ report.reportId }}</p>
+                        <p><strong>Client ID:</strong> {{ report.clientId }}</p>
+                    </div>
+                </li>
+                {% else %}
+                <li>No reports found</li>
                 {% endfor %}
             </ul>
         </section>
+
     </main>
-    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+    <script src="static/scripts.js"></script>
 </body>
 </html>
