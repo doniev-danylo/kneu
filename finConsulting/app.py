@@ -17,5 +17,10 @@ def index():
                            reports=reports)
 
 
+@app.route('/linear_regression_forecast')
+def linear_regression_forecast():
+    return render_template('linear_regression_forecast.html')
+
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5001, debug=True)
