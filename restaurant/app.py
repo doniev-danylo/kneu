@@ -12,6 +12,10 @@ db = client['restaurant']
 def home():
     return render_template('index.html')
 
+@app.route('/linear_regression_forecast')
+def linear_regression_forecast():
+    return render_template('linear_regression_forecast.html')
+
 
 @app.route('/menu', methods=['POST', 'GET'])
 def menu():
