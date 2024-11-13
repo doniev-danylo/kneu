@@ -1,0 +1,44 @@
+/*
+Created on : Apr 04, 2017, 3:20:16 PM
+Author     : Kiril Kirkov
+Gitgub     : https://github.com/kirilkirkov
+*/
+html, body { height: 100%;}
+body { color:#6b6b6b; font-size: 13px; }
+#wrapper { min-height: 100%; position: relative;}
+#content {padding-bottom:100px;}
+h1 {font-size:30px; }
+nav.navbar, .left-side, h1 {text-transform: uppercase; }
+input.form-control {border:1px solid #dadada; border-radius: 0; box-shadow:none;}
+
+nav.navbar {z-index: 55;}
+nav.navbar a { color:#fff;}
+nav.navbar li a:hover, nav.navbar li a:focus, nav.navbar li a:active {background-color: transparent;}
+.navbar-nav li a i {margin-right: 7px;}
+nav.navbar .dropdown-menu li {margin-bottom: 3px;}
+nav.navbar .dropdown-menu li a { color:#333;}
+.nav .open > a, .nav .open > a:focus, .nav .open > a:hover {background-color: transparent;}
+.left-side { border-right:1px solid #e7e7e7; padding:0; bottom: 0;  display: block;left: 0; overflow: auto;position: absolute;    top: 51px;}
+.left-side .sidebar-menu {list-style: none; margin:0 0 80px;padding:0;}
+.left-side .sidebar-menu li {margin: 0; padding: 0; position: relative; border-bottom: 1px solid #e7e7e7;}
+.left-side .sidebar-menu li a {display: block;   border-left: 3px solid transparent;  color: #337ab7;    padding: 12px 5px 12px 15px; }
+.left-side .sidebar-menu li a i {margin-right: 7px;}
+.left-side .sidebar-menu li a:hover, div.left-side ul.sidebar-menu li a.active { background-color: #eeeeee; text-decoration: none; }
+.left-side .sidebar-menu li.header {  color: #4b646f; padding: 12px 5px 12px 15px; }
+.sidebar-menu .sidebar-search {padding: 15px !important;}
+#show-xs-nav { border: 1px solid #666;  padding: 5px; text-decoration: none; color: #666;  font-size: 13px; text-align: center; margin-top: 10px; border-radius: 5px;}
+#nav-categories, #show-xs-nav .hidde-sp {display: none;}
+
+@media (min-width: 767px) {
+    .sidebar-menu {display: block !important;}
+}
+
+@media screen and (max-width: 767px) {
+    .left-side {position:relative !important; top:0 !important; margin-bottom: 20px;}
+    nav.navbar {margin-bottom:0;}
+    nav.navbar .navbar-brand {height:55px;}
+    .settings {position: relative;}
+    .show-menu {display: block; padding:0 10px !important;}
+    .sidebar-menu {display: none;}
+}
+
